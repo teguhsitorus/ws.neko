@@ -1,0 +1,24 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
+    id 'application'
+}
+
+group 'app.nekogram.tcp2ws'
+version '1.0'
+mainClassName = "app.nekogram.tcp2ws.Main"
+
+shadowJar {
+    minimize()
+    exclude 'META-INF/**'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.beust:jcommander:1.82'
+    implementation 'org.json:json:20211205'
+    implementation files('lib/org.tcp2ws.jar')
+}
