@@ -13,9 +13,9 @@ public class Main {
     @Parameter(names = {"--help", "-h"}, help = true, description = "Show help")
     private boolean help;
     @Parameter(names = {"--port", "-p"}, description = "Listening port")
-    private int socksPort = 6356;
+    private int socksPort = 1657;
     @Parameter(names = {"--address", "-a"}, description = "Listening address")
-    private String socksAddress = "127.0.0.1";
+    private String socksAddress = "0.0.0.0";
     @Parameter(names = {"--tls", "-t"}, description = "Enable TLS")
     private boolean enableTLS = true;
     @Parameter(names = {"--doh", "-d"}, description = "Enable DoH")
@@ -60,7 +60,7 @@ public class Main {
                 System.out.printf("Connect with link https://t.me/proxy?server=%s&port=%d&secret=00000000000000000000000000000000\n", socksAddress, socksPort);
             }
         } catch (Exception e) {
-            if (socksPort == 6356) {
+            if (socksPort == 1657) {
                 socksPort = -1;
                 startServer();
             }
